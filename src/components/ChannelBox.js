@@ -1,4 +1,5 @@
 import Channel from "./Channel";
+import "./channelBox.css";
 
 function ChannelBox(props) {
   return (
@@ -6,7 +7,11 @@ function ChannelBox(props) {
       <span>{props.name}</span>
       <div className="channelGroup">
         {props.data["tblPackage_pin"].map((chann) => (
-          <Channel data={chann} handleFunc={props.handleFunc} mode={props.data['mode'] }/>
+          <Channel
+            data={chann}
+            handleFunc={props.handleFunc}
+            mode={props.data["mode"]}
+          />
         ))}
       </div>
     </div>

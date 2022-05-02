@@ -1,0 +1,24 @@
+/* Channel Box Component */
+
+@media only screen and (max-width: 360px) {
+  /* quick-access : Channel Box */
+
+  .channelBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #fff;
+    height: 90px;
+    width: 312px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .channelBox span {
+    font-size: 0.625rem;
+    font-weight: 700;
+  }
+}

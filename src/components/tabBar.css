@@ -1,4 +1,4 @@
-/* Tab Bar styles */
+/* Tab Bar Component */
 
 /* mobile 360px width */
 
@@ -32,7 +32,7 @@
   #tabBar ul li p {
     font-size: 0.625rem;
     color: var(--gray-text-color);
-    transition: color .3s ease-out;
+    transition: color 0.3s ease-out;
   }
 
   #tabBar ul li img {
@@ -43,8 +43,8 @@
   /* bug : transitions won't work */
 
   #tabBar ul li svg path {
-    fill: #BDBDBD;
-    transition: fill .3s ease-out;
+    fill: #bdbdbd;
+    transition: fill 0.3s ease-out;
   }
 
   /* Current Page */
@@ -54,11 +54,11 @@
   }
 
   .currentPage p {
-    color: #7B61FF !important;
+    color: #7b61ff !important;
   }
 
   .currentPage svg path {
     /* transition: all .3s ease-in-out; */
-    fill: #7B61FF !important;
+    fill: #7b61ff !important;
   }
 }

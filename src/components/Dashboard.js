@@ -69,6 +69,7 @@ function Dashboard() {
 
   // to here <==
 
+  // Data Structure
   // With this function we structure our jsonData into an array.
   // we should also make other arrays for other modes
 
@@ -97,7 +98,11 @@ function Dashboard() {
   };
 
   lightModeFunc();
-  console.log(lightModeData)
+  console.log(lightModeData);
+
+  // Outside and inside handle function
+  // move to new component
+  // from here ==>
 
   const handleBtnActive = (event) => {
     event.preventDefault();
@@ -111,6 +116,10 @@ function Dashboard() {
       default:
     }
   };
+
+  // to here <==
+
+  // Turn on and off the channels with this handle function
 
   const handleChannelStatus = (event) => {
     const channel = event.target.id.split("-");
@@ -127,7 +136,9 @@ function Dashboard() {
       };
       const url = `${localIP}/Light/api/changerele/?id=${channelID}&status=${channelstatus}&result=Device1`;
       console.log(
-        `Channel with id : ${channelID} ${channelstatus === 1 ? "Turned On" : "Turned Off"}`
+        `Channel with id : ${channelID} ${
+          channelstatus === 1 ? "Turned On" : "Turned Off"
+        }`
       );
       const response = await fetch(url, requestOptions);
       setJsonData(await response.json());
@@ -179,6 +190,9 @@ function Dashboard() {
             ))
           )}
         </div>
+
+        {/* to-do: move to favorite component */}
+
         <div className="favorite-equipments">
           <div>
             <h3>مورد علاقه ها</h3>

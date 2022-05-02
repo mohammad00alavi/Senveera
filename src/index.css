@@ -1,13 +1,12 @@
 /* variables */
 
 :root {
-  --main-bg-color: #F1F1F1;
-  --primary-color: #51A7F2;
-  --primary-text-color: #4C4F53;
+  --main-bg-color: #f1f1f1;
+  --primary-color: #51a7f2;
+  --primary-text-color: #4c4f53;
   --secondary-text-color: #003465;
-  --gray-text-color: #BDBDBD;
+  --gray-text-color: #bdbdbd;
 }
-
 
 /* Basic Styles */
 
