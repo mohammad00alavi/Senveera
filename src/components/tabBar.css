@@ -1,0 +1,64 @@
+/* Tab Bar styles */
+
+/* mobile 360px width */
+
+@media only screen and (max-width: 360px) {
+  #tabBar {
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+  }
+
+  #tabBar ul {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    list-style: none;
+    margin: 8.5px 24px;
+    margin-top: 15.5px;
+  }
+
+  #tabBar ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5px;
+  }
+
+  #tabBar ul li p {
+    font-size: 0.625rem;
+    color: var(--gray-text-color);
+    transition: color .3s ease-out;
+  }
+
+  #tabBar ul li img {
+    width: 24px;
+    height: 24px;
+  }
+
+  /* bug : transitions won't work */
+
+  #tabBar ul li svg path {
+    fill: #BDBDBD;
+    transition: fill .3s ease-out;
+  }
+
+  /* Current Page */
+
+  .currentPage {
+    gap: 10px !important;
+  }
+
+  .currentPage p {
+    color: #7B61FF !important;
+  }
+
+  .currentPage svg path {
+    /* transition: all .3s ease-in-out; */
+    fill: #7B61FF !important;
+  }
+}

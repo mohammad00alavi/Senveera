@@ -1,0 +1,33 @@
+/* variables */
+
+:root {
+  --main-bg-color: #F1F1F1;
+  --primary-color: #51A7F2;
+  --primary-text-color: #4C4F53;
+  --secondary-text-color: #003465;
+  --gray-text-color: #BDBDBD;
+}
+
+
+/* Basic Styles */
+
+body {
+  font-size: 16px;
+  background-color: var(--main-bg-color);
+  font-family: IRANSansWeb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Animate CSS */
+
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
