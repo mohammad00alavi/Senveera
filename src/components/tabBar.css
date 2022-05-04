@@ -35,7 +35,7 @@
     transition: color 0.3s ease-out;
   }
 
-  #tabBar ul li img {
+  #tabBar ul li svg {
     width: 24px;
     height: 24px;
   }

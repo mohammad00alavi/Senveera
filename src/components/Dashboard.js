@@ -98,7 +98,6 @@ function Dashboard() {
   };
 
   lightModeFunc();
-  console.log(lightModeData);
 
   // Outside and inside handle function
   // move to new component
@@ -135,11 +134,11 @@ function Dashboard() {
         body: JSON.stringify({ title: "Fetch POST Request Example" }),
       };
       const url = `${localIP}/Light/api/changerele/?id=${channelID}&status=${channelstatus}&result=Device1`;
-      console.log(
-        `Channel with id : ${channelID} ${
-          channelstatus === 1 ? "Turned On" : "Turned Off"
-        }`
-      );
+      // console.log(
+      //   `Channel with id : ${channelID} ${
+      //     channelstatus === 1 ? "Turned On" : "Turned Off"
+      //   }`
+      // );
       const response = await fetch(url, requestOptions);
       setJsonData(await response.json());
     })();

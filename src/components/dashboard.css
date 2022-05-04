@@ -1,5 +1,15 @@
 /* Dashboard Page */
 
+/* mobile 425px width */
+
+/* @media only screen and (max-width: 425px) {
+  .container {
+    width: 425px;
+    height: calc(640px - 42px);
+    margin-bottom: 65px;
+  }
+} */
+
 /* mobile 360px width */
 
 @media only screen and (max-width: 360px) {

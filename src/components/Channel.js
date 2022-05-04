@@ -1,6 +1,12 @@
-import SVGPack from "./SVGPack";
-import SVGInject from "@iconfu/svg-inject";
 import "./channel.css";
+import {ReactComponent as CoolerWater} from "../svg/cooler-water.svg";
+import {ReactComponent as CoolerSlow} from "../svg/cooler-slow.svg";
+import {ReactComponent as CoolerFast} from "../svg/cooler-fast.svg";
+import {ReactComponent as WindowShadeOpen} from "../svg/window-shade-open.svg";
+import {ReactComponent as WindowShadeClose} from "../svg/window-shade-close.svg";
+import {ReactComponent as WindowShadePause} from "../svg/window-shade-pause.svg";
+
+
 
 function Channel(props) {
   function windowNameRender() {
@@ -12,24 +18,24 @@ function Channel(props) {
       return "بسته";
     }
   }
-
+  
   function windowSVG() {
     if (props.data["pin"] === 0) {
-      return SVGPack.windowShadeOpen;
+      return <WindowShadeOpen/>;
     } else if (props.data["pin"] === 1) {
-      return SVGPack.windowShadePause;
+      return <WindowShadePause/>;
     } else {
-      return SVGPack.windowShadeClose;
+      return <WindowShadeClose/>;
     }
   }
 
   function coolerSVG() {
     if (props.data["pin"] === 0) {
-      return SVGPack.coolerWater;
+      return <CoolerWater/>;
     } else if (props.data["pin"] === 1) {
-      return SVGPack.coolerSlow;
+      return <CoolerSlow/>;
     } else {
-      return SVGPack.coolerFast;
+      return <CoolerFast/>;
     }
   }
 
@@ -57,11 +63,7 @@ function Channel(props) {
           props.data["status"] === "1" ? "windowBtnActive" : ""
         }`}
       >
-        <img
-          src={windowSVG()}
-          alt={`${props.alt}-icon`}
-          onLoad={(e) => SVGInject(e.target)}
-        />
+        {windowSVG()}
         <span
           key={props.data["id"]}
           id={`${props.data["id"]}-${props.data["status"]}`}
@@ -94,11 +96,7 @@ function Channel(props) {
           props.data["status"] === "1" ? "coolerBtnActive" : ""
         }`}
       >
-        <img
-          src={coolerSVG()}
-          alt={`${props.alt}-icon`}
-          onLoad={(e) => SVGInject(e.target)}
-        />
+        {coolerSVG()}
         <span
           key={props.data["id"]}
           id={`${props.data["id"]}-${props.data["status"]}`}
