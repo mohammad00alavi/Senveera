@@ -3,6 +3,9 @@ import ChannelBox from "./ChannelBox";
 import TabBar from "./TabBar";
 import SVGPack from "./SVGPack";
 import "./dashboard.css";
+// import localIP from './ip-address.js'
+import { ReactComponent as RefreshButton } from "../svg/arrow-rotate-right-solid.svg";
+// import FavoriteChannels from "./FavoriteChannels";
 
 function Dashboard() {
   // Declare Hooks
@@ -13,7 +16,8 @@ function Dashboard() {
 
   // Declare Variables
 
-  let localIP = "http://192.168.4.1",
+  // let localIP = "http://192.168.4.1"
+  let localIP = localStorage.getItem("ip-address"),
     localUrl = `${localIP}/DeviceList1`,
     lightMode = [],
     lightModeData;
@@ -50,7 +54,7 @@ function Dashboard() {
   // from here ==>
 
   const handleRefresh = () => {
-    setRefreshBtn("refreshBtn");
+    setRefreshBtn("refreshBtnActive");
     setTimeout(() => {
       setRefreshBtn("");
     }, 1000);
@@ -172,10 +176,10 @@ function Dashboard() {
         <div className="quick-access">
           <h3>
             دسترسی سریع
-            <i
-              className={`fa-solid fa-arrow-rotate-right ${refreshBtn}`}
+            <RefreshButton
+              className={`${refreshBtn} refreshBtn`}
               onClick={handleGetAPI}
-            ></i>
+            />
           </h3>
           {jsonData.length === 0 ? (
             <h3>دستگاهی یافت نشد !</h3>
@@ -189,15 +193,8 @@ function Dashboard() {
             ))
           )}
         </div>
-
-        {/* to-do: move to favorite component */}
-
-        <div className="favorite-equipments">
-          <div>
-            <h3>مورد علاقه ها</h3>
-            <i className="fa-solid fa-plus"></i>
-          </div>
-        </div>
+        {/* commented for now */}
+        {/* <FavoriteChannels/> */}
       </div>
       <TabBar page="dashboard" />
     </>

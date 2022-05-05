@@ -30,3 +30,11 @@ body {
   --animate-duration: 800ms;
   --animate-delay: 0.9s;
 }
+
+/* @media only screen and (min-width: 361px) {
+  #root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+} */

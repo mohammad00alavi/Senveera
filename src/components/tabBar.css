@@ -2,7 +2,7 @@
 
 /* mobile 360px width */
 
-@media only screen and (max-width: 360px) {
+@media only screen and (min-width: 100px) {
   #tabBar {
     position: fixed;
     width: 100%;
@@ -60,5 +60,32 @@
   .currentPage svg path {
     /* transition: all .3s ease-in-out; */
     fill: #7b61ff !important;
+  }
+}
+
+@media only screen and (min-width: 361px) {
+  #tabBar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #tabBar ul {
+    width: 312px;
+  }
+}
+
+/* iPad width */
+
+@media only screen and (min-width: 768px) {
+  #tabBar ul {
+    width: 450px;
+  }
+}
+
+/* PC Width */
+
+@media only screen and (min-width: 1024px) {
+  #tabBar ul li {
+    cursor: pointer;
   }
 }

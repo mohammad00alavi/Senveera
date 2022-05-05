@@ -1,6 +1,6 @@
 /* Channel Box Component */
 
-@media only screen and (max-width: 360px) {
+@media only screen and (min-width: 100px) {
   /* quick-access : Channel Box */
 
   .channelBox {

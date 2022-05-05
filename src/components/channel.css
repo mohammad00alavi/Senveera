@@ -2,7 +2,7 @@
 
 /* mobile 360px width */
 
-@media only screen and (max-width: 360px) {
+@media only screen and (min-width: 100px) {
   /* quick-access : Channel Group */
 
   .channelGroup {
@@ -129,5 +129,15 @@
 
   .coolerBtnActive svg path {
     stroke: #fff !important;
+  }
+}
+
+/* PC Width */
+
+@media only screen and (min-width: 1024px) {
+  .coolerChannelGroup,
+  .windowChannelGroup,
+  .channelLight {
+    cursor: pointer;
   }
 }
