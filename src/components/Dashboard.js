@@ -5,6 +5,7 @@ import SVGPack from "./SVGPack";
 import "./dashboard.css";
 // import localIP from './ip-address.js'
 import { ReactComponent as RefreshButton } from "../svg/arrow-rotate-right-solid.svg";
+import { ReactComponent as SenveeraLogo } from "../svg/logo.svg";
 // import FavoriteChannels from "./FavoriteChannels";
 
 function Dashboard() {
@@ -153,7 +154,7 @@ function Dashboard() {
       <div className="container" dir="rtl">
         <div className="welcome">
           <div id="logo">
-            <img src={SVGPack.logo} alt="senveera-logo" />
+            <SenveeraLogo className="logo"/> 
           </div>
           <p>به سادگی خانه را مدیریت کن !</p>
           <div className="inside-outside">

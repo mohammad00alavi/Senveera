@@ -1,12 +1,10 @@
 import "./channel.css";
-import {ReactComponent as CoolerWater} from "../svg/cooler-water.svg";
-import {ReactComponent as CoolerSlow} from "../svg/cooler-slow.svg";
-import {ReactComponent as CoolerFast} from "../svg/cooler-fast.svg";
-import {ReactComponent as WindowShadeOpen} from "../svg/window-shade-open.svg";
-import {ReactComponent as WindowShadeClose} from "../svg/window-shade-close.svg";
-import {ReactComponent as WindowShadePause} from "../svg/window-shade-pause.svg";
-
-
+import { ReactComponent as CoolerWater } from "../svg/cooler-water.svg";
+import { ReactComponent as CoolerSlow } from "../svg/cooler-slow.svg";
+import { ReactComponent as CoolerFast } from "../svg/cooler-fast.svg";
+import { ReactComponent as WindowShadeOpen } from "../svg/window-shade-open.svg";
+import { ReactComponent as WindowShadeClose } from "../svg/window-shade-close.svg";
+import { ReactComponent as WindowShadePause } from "../svg/window-shade-pause.svg";
 
 function Channel(props) {
   function windowNameRender() {
@@ -18,24 +16,24 @@ function Channel(props) {
       return "بسته";
     }
   }
-  
+
   function windowSVG() {
     if (props.data["pin"] === 0) {
-      return <WindowShadeOpen/>;
+      return <WindowShadeOpen />;
     } else if (props.data["pin"] === 1) {
-      return <WindowShadePause/>;
+      return <WindowShadePause />;
     } else {
-      return <WindowShadeClose/>;
+      return <WindowShadeClose />;
     }
   }
 
   function coolerSVG() {
     if (props.data["pin"] === 0) {
-      return <CoolerWater/>;
+      return <CoolerWater />;
     } else if (props.data["pin"] === 1) {
-      return <CoolerSlow/>;
+      return <CoolerSlow />;
     } else {
-      return <CoolerFast/>;
+      return <CoolerFast />;
     }
   }
 
@@ -64,13 +62,12 @@ function Channel(props) {
         }`}
       >
         {windowSVG()}
+        <p>{windowNameRender()}</p>
         <span
           key={props.data["id"]}
           id={`${props.data["id"]}-${props.data["status"]}`}
           onClick={props.handleFunc}
-        >
-          {windowNameRender()}
-        </span>
+        ></span>
       </div>
     );
   } else if (props.mode === 1) {

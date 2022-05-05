@@ -18,7 +18,7 @@
   .channelGroup > span {
     position: relative;
     margin-top: 30px;
-    transition: all 0.2s ease-out;
+    transition: var(--transition-100-ms);
     font-size: 0.5625rem;
     font-weight: 400;
     text-align: center;
@@ -33,7 +33,7 @@
     left: 0;
     background: #d1d1d1;
     border-radius: 50%;
-    transition: all 0.2s ease-out;
+    transition: var(--transition-100-ms);
   }
 
   .channelGroup > span::before {
@@ -47,7 +47,7 @@
     background: #f1f1f1;
     border-radius: 50%;
     transform: translateX(9px) translateY(9px);
-    transition: all 0.2s ease-out;
+    transition: var(--transition-100-ms);
   }
 
   /* quick-access : Channel Button Active */
@@ -67,7 +67,11 @@
 
   .windowChannelGroup {
     display: flex;
+    position: relative;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
     font-size: 0.5625rem;
     font-weight: 400;
     text-align: center;
@@ -75,17 +79,25 @@
 
   .windowChannelGroup svg path {
     fill: #bdbdbd;
-    transition: fill 0.3s ease-out;
+    transition: fill 0.1s ease-out;
   }
 
   .windowBtnActive svg path {
     fill: var(--primary-color) !important;
   }
 
-  .windowChannelGroup span {
-    font-size: 0.5625rem;
+  .windowChannelGroup p {
+    font-size: 0.625rem;
     font-weight: 400;
     text-align: center;
+  }
+
+  .windowChannelGroup span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 42px;
   }
 
   /* Cooler Channels Group */
@@ -104,7 +116,7 @@
 
   .coolerChannelGroup svg path {
     stroke: #bdbdbd;
-    transition: all 0.3s ease-out;
+    transition: var(--transition-100-ms);
   }
 
   .coolerChannelGroup img {
@@ -119,7 +131,7 @@
     padding: 9px;
     border-radius: 10px;
     border: 1px solid #bdbdbd;
-    transition: all 0.3s ease-out;
+    transition: var(--transition-100-ms);
   }
 
   .coolerBtnActive svg {

@@ -1,5 +1,7 @@
 /* Channel Box Component */
 
+/* Mobile 100px width to 399px */
+
 @media only screen and (min-width: 100px) {
   /* quick-access : Channel Box */
 
@@ -20,5 +22,12 @@
   .channelBox span {
     font-size: 0.625rem;
     font-weight: 700;
+  }
+}
+/* Mobile 400px width and more */
+
+@media only screen and (min-width: 361px) {
+  .channelBox {
+    width: 100%;
   }
 }

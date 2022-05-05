@@ -1,6 +1,6 @@
 /* Dashboard Page */
 
-/* mobile 100px width to 360px width */
+/* mobile 100px width to 399px width */
 
 @media only screen and (min-width: 100px) {
   .container {
@@ -27,7 +27,7 @@
     height: 2rem;
   }
 
-  #logo img {
+  .logo {
     display: block;
     width: 6.125rem;
     height: 1rem;
@@ -144,7 +144,7 @@
   }
 }
 
-/* Mobile 361px width and more */
+/* Mobile 400px width to 449px */
 
 @media only screen and (min-width: 361px) {
   .container {
@@ -156,7 +156,15 @@
     align-items: center;
   }
   .quick-access {
-    width: 360px;
+    width: 100%;
+  }
+}
+
+/* Mobile 450px width to ipad */
+
+@media only screen and (min-width: 450px) {
+  .quick-access {
+    width: 450px;
   }
 }
 
@@ -178,7 +186,7 @@
     align-items: center;
   }
 
-  #logo img {
+  .logo {
     width: 7.65rem;
     height: 1.25rem;
   }
