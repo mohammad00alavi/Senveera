@@ -15,7 +15,7 @@
     border-radius: 10px;
     background-color: #fff;
     height: 90px;
-    width: 312px;
+    width: 100%;
     transition: all 0.3s ease-in-out;
   }
 
@@ -26,8 +26,8 @@
 }
 /* Mobile 400px width and more */
 
-@media only screen and (min-width: 361px) {
+/* @media only screen and (min-width: 361px) {
   .channelBox {
     width: 100%;
   }
-}
+} */

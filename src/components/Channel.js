@@ -38,19 +38,28 @@ function Channel(props) {
   }
 
   // console.log(props.handleFunc)
-  if (props.mode === 4) {
+  if (
+    props.mode === 1 ||
+    props.mode === 2 ||
+    props.mode === 3 ||
+    props.mode === 4 ||
+    props.mode === 9 ||
+    props.mode === 14
+  ) {
     return (
       <span
         // key={`${quickAccessChannels[0].id + index}`}
         key={props.data["id"]}
-        id={`${props.data["id"]}-${props.data["status"]}`}
-        onClick={props.handleFunc}
         className={`${
           props.data["status"] === "1"
             ? "channelBtnActive channelLight"
             : "channelLight"
         }`}
       >
+        <span
+          id={`${props.data["id"]}-${props.data["status"]}`}
+          onClick={props.handleFunc}
+        ></span>
         {props.data["name"]}
       </span>
     );
@@ -70,23 +79,76 @@ function Channel(props) {
         ></span>
       </div>
     );
-  } else if (props.mode === 1) {
-    return (
-      <span
-        // key={`${quickAccessChannels[0].id + index}`}
-        key={props.data["id"]}
-        id={`${props.data["id"]}-${props.data["status"]}`}
-        onClick={props.handleFunc}
-        className={`${
-          props.data["status"] === "1"
-            ? "channelBtnActive channelLight"
-            : "channelLight"
-        }`}
-      >
-        {props.data["name"]}
-      </span>
-    );
-  } else if (props.mode === 5) {
+  }
+  // else if (props.mode === 1) {
+  //   return (
+  //     <span
+  //       // key={`${quickAccessChannels[0].id + index}`}
+  //       key={props.data["id"]}
+  //       id={`${props.data["id"]}-${props.data["status"]}`}
+  //       onClick={props.handleFunc}
+  //       className={`${
+  //         props.data["status"] === "1"
+  //           ? "channelBtnActive channelLight"
+  //           : "channelLight"
+  //       }`}
+  //     >
+  //       {props.data["name"]}
+  //     </span>
+  //   );
+  // }
+  // else if (props.mode === 2) {
+  //   return (
+  //     <span
+  //       // key={`${quickAccessChannels[0].id + index}`}
+  //       key={props.data["id"]}
+  //       id={`${props.data["id"]}-${props.data["status"]}`}
+  //       onClick={props.handleFunc}
+  //       className={`${
+  //         props.data["status"] === "1"
+  //           ? "channelBtnActive channelLight"
+  //           : "channelLight"
+  //       }`}
+  //     >
+  //       {props.data["name"]}
+  //     </span>
+  //   );
+  // }
+  //  else if (props.mode === 3) {
+  //   return (
+  //     <span
+  //       // key={`${quickAccessChannels[0].id + index}`}
+  //       key={props.data["id"]}
+  //       id={`${props.data["id"]}-${props.data["status"]}`}
+  //       onClick={props.handleFunc}
+  //       className={`${
+  //         props.data["status"] === "1"
+  //           ? "channelBtnActive channelLight"
+  //           : "channelLight"
+  //       }`}
+  //     >
+  //       {props.data["name"]}
+  //     </span>
+  //   );
+  // }
+  // else if (props.mode === 9) {
+  //   return (
+  //     <span
+  //       // key={`${quickAccessChannels[0].id + index}`}
+  //       key={props.data["id"]}
+  //       id={`${props.data["id"]}-${props.data["status"]}`}
+  //       onClick={props.handleFunc}
+  //       className={`${
+  //         props.data["status"] === "1"
+  //           ? "channelBtnActive channelLight"
+  //           : "channelLight"
+  //       }`}
+  //     >
+  //       {props.data["name"]}
+  //     </span>
+  //   );
+  // }
+  else if (props.mode === 5) {
     return (
       <div
         className={`coolerChannelGroup  ${

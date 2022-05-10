@@ -1,0 +1,203 @@
+/* Thermostat Box Component */
+
+/* Mobile 100px width to 360px */
+
+@media only screen and (min-width: 100px) {
+  .thermostatBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #fff;
+    height: 280px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .thermostatBox > span {
+    font-size: 0.625rem;
+    font-weight: 700;
+    padding-top: 16px;
+  }
+
+  .stateContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 12px 8.5px 12px;
+  }
+
+  .stateContainer > * {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .stateContainer > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stateContainer > div span {
+    padding: 6px 12px;
+    background-color: var(--main-bg-color);
+    color: #9a9a9a;
+    cursor: pointer;
+  }
+
+  .stateContainer > div span:nth-of-type(1) {
+    border-radius: 0 5px 5px 0;
+  }
+
+  .stateContainer > div span:nth-of-type(2) {
+    border-radius: 5px 0 0 5px;
+  }
+
+  .stateActive {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+  }
+
+  .stateContainer span {
+    font-size: 0.625rem;
+    font-weight: 400;
+  }
+
+  .setTempContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 12px;
+  }
+
+  .setTempContainer > div:nth-of-type(2) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 11px;
+    padding: 5px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+  }
+
+  .setTempContainer > div > span {
+    color: var(--primary-color);
+  }
+
+  .setTempContainer > div > span > span {
+    color: var(--primary-text-color);
+  }
+
+  /* Thermostat Channels Group */
+  .thermostatChanneslGroup {
+    width: 92.5%;
+    padding: 12px;
+    border: 0.5px solid #e7e7e7;
+    border-radius: 10px;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  .thermostatChanneslGroup > span {
+    text-align: center;
+  }
+
+  /* Thermostat Button */
+
+  .thermostatBtn {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border: 0.5px solid #9a9a9a;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition-100-ms);
+    background: #fff;
+    cursor: pointer;
+  }
+
+  .thermostatBtn span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+  }
+
+  .thermostatBtn svg {
+    width: 13.33px;
+    height: 13.33px;
+    fill: #51a7f2;
+  }
+
+  .thermostatBtn svg path {
+    stroke: #51a7f2;
+  }
+
+  .thermostatBtn svg path,
+  .thermostatBtn svg {
+    transition: var(--transition-100-ms);
+  }
+
+  .thermostatBtn:active {
+    background: #51a7f2;
+  }
+
+  .thermostatBtn:active svg {
+    fill: #fff;
+    stroke: #fff;
+  }
+
+  .thermostatBtn:active svg path {
+    stroke: #fff;
+  }
+
+  /* Sleep Button */
+
+  .sleepBtn {
+    padding: 6px 12px;
+    border: 0.5px solid #203e76;
+    border-radius: 5px;
+    color: #203e76;
+    transition: var(--transition-100-ms);
+    cursor: pointer;
+  }
+
+  .sleepActive {
+    background-color: #203e76;
+    color: #fff;
+  }
+}
+
+/* 361px and more */
+
+@media only screen and (min-width: 361px) {
+  .setTempContainer > div:nth-of-type(2) {
+    padding: 13.5px 24px;
+  }
+
+  .thermostatBox {
+    height: 224px;
+  }
+
+  .stateContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .stateContainer > * {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

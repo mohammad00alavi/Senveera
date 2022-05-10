@@ -4,19 +4,21 @@
 
 @media only screen and (min-width: 100px) {
   .container {
-    width: 360px;
+    width: 100%;
     min-height: calc(640px - 65px);
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
+    padding: 0 12px 100px 12px;
   }
 
   /* Welcome Styles */
 
-  .container > * {
+  /* .container > * {
     padding: 0 24px;
-  }
+  } */
 
   .welcome {
     margin-top: 42px;
+    width: 100%;
   }
 
   #logo {
@@ -59,7 +61,7 @@
     background-color: #fff;
     color: #bdbdbd;
     height: 35px;
-    width: 150px;
+    width: 50%;
     font-size: 0.75rem;
     font-weight: 700;
     transition: all 0.3s ease-in-out;
@@ -85,6 +87,7 @@
   .quick-access {
     display: flex;
     flex-direction: column;
+    width: 100%;
     gap: 10px;
   }
 
@@ -148,43 +151,61 @@
 
 @media only screen and (min-width: 361px) {
   .container {
-    width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
   }
-  .quick-access {
-    width: 100%;
-  }
 }
 
 /* Mobile 450px width to ipad */
 
-@media only screen and (min-width: 450px) {
+/* @media only screen and (min-width: 450px) {
   .quick-access {
     width: 450px;
   }
-}
+} */
 
 /* iPad width */
 
-@media only screen and (min-width: 768px) {
-  /* move to index js */
-
+@media only screen and (min-width: 550px) {
   .container {
-    width: 75%;
+    width: 90%;
     margin: auto;
+    padding: 0 24px 100px 24px;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .container {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    width: 500px;
   }
 
-  .welcome {
+  .refreshBtn,
+  .btn {
+    cursor: pointer;
+  }
+
+  /* .welcome {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  } */
 
   .logo {
     width: 7.65rem;
@@ -199,9 +220,6 @@
 
 /* PC Width */
 
-@media only screen and (min-width: 1024px) {
-  .refreshBtn,
-  .btn {
-    cursor: pointer;
-  }
-}
+/* @media only screen and (min-width: 1024px) {
+  
+} */
