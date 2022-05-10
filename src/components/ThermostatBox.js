@@ -60,19 +60,6 @@ function ThermostatBox(props) {
       <div className="channelGroup thermostatChanneslGroup">
         <span
           className={`${
-            fan === "0" ? "channelBtnActive channelLight" : "channelLight"
-          }`}
-          // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-0`}
-          // onClick={props.handleFunc}
-        >
-          <span
-            id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-0`}
-            onClick={props.handleFunc}
-          ></span>
-          فن 1
-        </span>
-        <span
-          className={`${
             fan === "1" ? "channelBtnActive channelLight" : "channelLight"
           }`}
           // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-1`}
@@ -82,7 +69,7 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-1`}
             onClick={props.handleFunc}
           ></span>
-          فن 2
+          فن 1
         </span>
         <span
           className={`${
@@ -95,7 +82,7 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-2`}
             onClick={props.handleFunc}
           ></span>
-          فن 3
+          فن 2
         </span>
         <span
           className={`${
@@ -106,6 +93,19 @@ function ThermostatBox(props) {
         >
           <span
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-3`}
+            onClick={props.handleFunc}
+          ></span>
+          فن 3
+        </span>
+        <span
+          className={`${
+            fan === "0" ? "channelBtnActive channelLight" : "channelLight"
+          }`}
+          // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-3`}
+          // onClick={props.handleFunc}
+        >
+          <span
+            id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-0`}
             onClick={props.handleFunc}
           ></span>
           اتومات
