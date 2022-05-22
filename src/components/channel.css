@@ -10,14 +10,14 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 12px;
+    margin-top: 20px;
   }
 
   /* quick-access : Channel Button */
 
   .channelGroup > span {
     position: relative;
-    margin-top: 30px;
+    /* margin-top: 30px; */
     transition: var(--transition-100-ms);
     font-size: 0.5625rem;
     font-weight: 400;
@@ -36,39 +36,36 @@
     z-index: 100;
   }
 
-  .channelGroup > span::after {
+  /* .channelGroup > span::after {
     content: "";
     position: absolute;
     width: 24px;
     height: 24px;
-    /* top: -28px; */
     transform: translateX(13px) translateY(-28px);
     top: 0;
     left: 0;
     background: #d1d1d1;
     border-radius: 50%;
     transition: var(--transition-100-ms);
-  }
+  } */
 
-  .channelGroup > span::before {
+  /* .channelGroup > span::before {
     content: "";
     z-index: 2;
     position: absolute;
     width: 6px;
     height: 6px;
-    /* top: -28px; */
     top: 0;
     left: 0;
     background: #f1f1f1;
     border-radius: 50%;
     transform: translateX(22px) translateY(-19px);
-    /* transform: translateX(9px) translateY(9px); */
     transition: var(--transition-100-ms);
-  }
+  } */
 
   /* quick-access : Channel Button Active */
 
-  .channelGroup > span.channelBtnActive::after {
+  /* .channelGroup > span.channelBtnActive::after {
     background: var(--primary-color);
   }
 
@@ -76,8 +73,27 @@
     background: #fff;
     width: 12px;
     height: 12px;
-    /* transform: translateX(6px) translateY(6px); */
     transform: translateX(19px) translateY(-22px);
+  } */
+
+  /* Lamp Icon */
+
+  .lamp svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .lamp svg path,
+  .lamp svg circle {
+    transition: var(--transition-100-ms);
+  }
+
+  .lampActive svg path {
+    fill: var(--primary-color);
+  }
+
+  .lampActive svg circle {
+    stroke: var(--primary-color);
   }
 
   /* window Channels Group */

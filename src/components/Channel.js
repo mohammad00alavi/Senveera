@@ -5,6 +5,8 @@ import { ReactComponent as CoolerFast } from "../svg/cooler-fast.svg";
 import { ReactComponent as WindowShadeOpen } from "../svg/window-shade-open.svg";
 import { ReactComponent as WindowShadeClose } from "../svg/window-shade-close.svg";
 import { ReactComponent as WindowShadePause } from "../svg/window-shade-pause.svg";
+import { ReactComponent as LampIcon } from "../svg/lamp-icon.svg";
+
 
 function Channel(props) {
   function windowNameRender() {
@@ -47,19 +49,35 @@ function Channel(props) {
     props.mode === 14
   ) {
     return (
+
+      // Old Version
+
+      // <span
+      //   key={props.data["id"]}
+      //   className={`${
+      //     props.data["status"] === "1"
+      //       ? "channelBtnActive channelLight"
+      //       : "channelLight"
+      //   }`}
+      // >
+      //   <span
+      //     id={`${props.data["id"]}-${props.data["status"]}`}
+      //     onClick={props.handleFunc}
+      //   ></span>
+      //   {props.data["name"]}
+      // </span>
+
+      // New Version with Lamp Icon
+
       <span
-        // key={`${quickAccessChannels[0].id + index}`}
         key={props.data["id"]}
-        className={`${
-          props.data["status"] === "1"
-            ? "channelBtnActive channelLight"
-            : "channelLight"
-        }`}
-      >
+        className={`${props.data["status"] === "1"? "lampActive lamp": "lamp"}`}>
         <span
           id={`${props.data["id"]}-${props.data["status"]}`}
           onClick={props.handleFunc}
-        ></span>
+        >
+        </span>
+        <LampIcon/>
         {props.data["name"]}
       </span>
     );
@@ -80,74 +98,6 @@ function Channel(props) {
       </div>
     );
   }
-  // else if (props.mode === 1) {
-  //   return (
-  //     <span
-  //       // key={`${quickAccessChannels[0].id + index}`}
-  //       key={props.data["id"]}
-  //       id={`${props.data["id"]}-${props.data["status"]}`}
-  //       onClick={props.handleFunc}
-  //       className={`${
-  //         props.data["status"] === "1"
-  //           ? "channelBtnActive channelLight"
-  //           : "channelLight"
-  //       }`}
-  //     >
-  //       {props.data["name"]}
-  //     </span>
-  //   );
-  // }
-  // else if (props.mode === 2) {
-  //   return (
-  //     <span
-  //       // key={`${quickAccessChannels[0].id + index}`}
-  //       key={props.data["id"]}
-  //       id={`${props.data["id"]}-${props.data["status"]}`}
-  //       onClick={props.handleFunc}
-  //       className={`${
-  //         props.data["status"] === "1"
-  //           ? "channelBtnActive channelLight"
-  //           : "channelLight"
-  //       }`}
-  //     >
-  //       {props.data["name"]}
-  //     </span>
-  //   );
-  // }
-  //  else if (props.mode === 3) {
-  //   return (
-  //     <span
-  //       // key={`${quickAccessChannels[0].id + index}`}
-  //       key={props.data["id"]}
-  //       id={`${props.data["id"]}-${props.data["status"]}`}
-  //       onClick={props.handleFunc}
-  //       className={`${
-  //         props.data["status"] === "1"
-  //           ? "channelBtnActive channelLight"
-  //           : "channelLight"
-  //       }`}
-  //     >
-  //       {props.data["name"]}
-  //     </span>
-  //   );
-  // }
-  // else if (props.mode === 9) {
-  //   return (
-  //     <span
-  //       // key={`${quickAccessChannels[0].id + index}`}
-  //       key={props.data["id"]}
-  //       id={`${props.data["id"]}-${props.data["status"]}`}
-  //       onClick={props.handleFunc}
-  //       className={`${
-  //         props.data["status"] === "1"
-  //           ? "channelBtnActive channelLight"
-  //           : "channelLight"
-  //       }`}
-  //     >
-  //       {props.data["name"]}
-  //     </span>
-  //   );
-  // }
   else if (props.mode === 5) {
     return (
       <div

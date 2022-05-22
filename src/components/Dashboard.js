@@ -6,7 +6,8 @@ import TabBar from "./TabBar";
 import "./dashboard.css";
 // import localIP from './ip-address.js'
 import { ReactComponent as RefreshButton } from "../svg/arrow-rotate-right-solid.svg";
-import { ReactComponent as SenveeraLogo } from "../svg/logo.svg";
+import { ReactComponent as SenveeraLogo } from "../svg/logo-2.svg";
+import { ReactComponent as SettingIcon } from "../svg/3-dots-setting.svg";
 // import FavoriteChannels from "./FavoriteChannels";
 
 function Dashboard() {
@@ -28,26 +29,7 @@ function Dashboard() {
     thermostatData,
     thermostatFromAPI = [];
 
-  // Web Socket config
-
-  // const url = { online: "http://192.168.1.166/", local: "http://192.168.4.1/" };
-  // const ws = new WebSocket('ws://admin:admin@narmgostaran.com:9005/ws')
   useEffect(() => {
-    // ws.onopen = () => {
-    //   // on connecting, do nothing but log it to the console
-    //   console.log('connected')
-    //   }
-    //   ws.onmessage = evt => {
-    //     // listen to data sent from the websocket server
-    //     const message = JSON.parse(evt.data)
-    //     console.log(message)
-    //     }
-
-    //     ws.onclose = () => {
-    //     console.log('disconnected')
-    //     // automatically try to reconnect on connection loss
-
-    //     }
     fetch(`${localUrl}`)
       .then((response) => response.json())
       .then((data) => setJsonData(data))
@@ -56,8 +38,7 @@ function Dashboard() {
       });
   }, []);
 
-  // Move to new Component
-  // from here ==>
+  // Handle Refresh
 
   const handleRefresh = () => {
     setRefreshBtn("refreshBtnActive");
@@ -76,8 +57,6 @@ function Dashboard() {
         return console.log("error");
       });
   };
-
-  // to here <==
 
   // Data Structure
   // With this function we structure our jsonData into an array.
@@ -151,8 +130,6 @@ function Dashboard() {
 
   thermostatFunc();
 
-  // console.log(thermostatData[0]['packId'])
-
   // Outside and inside handle function
   // move to new component
   // from here ==>
@@ -176,33 +153,14 @@ function Dashboard() {
 
   const handleChannelStatus = (event) => {
     const channel = event.target.id.split("-");
-    // let channelID,
-    //     channelstatus;
-    // use this for making on function for changing status of rele and strstatus
-    // if (channel[1] === "1" || channel[1] === "0") {
-    //   channelID = channel[0];
-    //   channelstatus = channel[1] === "1" ? 0 : 1;
-    // } else if (channel[1] === "true" || channel[1] === "false") {
-    //   channelID = channel[0];
-    //   channelstatus = channel[1] === "true" ? "false" : "true";
-    // }
     const channelID = channel[0];
     const channelstatus = channel[1] === "1" ? 0 : 1;
     (async () => {
       const requestOptions = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
         body: JSON.stringify({ title: "Fetch POST Request Example" }),
       };
       const url = `${localIP}/Light/api/changerele/?id=${channelID}&status=${channelstatus}&result=Device1`;
-      // console.log(
-      //   `Channel with id : ${channelID} ${
-      //     channelstatus === 1 ? "Turned On" : "Turned Off"
-      //   }`
-      // );
       const response = await fetch(url, requestOptions);
       setJsonData(await response.json());
     })();
@@ -258,19 +216,9 @@ function Dashboard() {
     (async () => {
       const requestOptions = {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
         body: JSON.stringify({ title: "Fetch POST Request Example" }),
       };
       const url = `${localIP}/Termoostat/api/changeTermoostat/?fan=${fan}&temp=${setTemp}&iscool=${isCool}&issleep=${isSleep}&id=${channelID}`;
-      // 192.168.1.166/Termoostat/api/changeTermoostat/?fan=1&temp=20&iscool=true&issleep=true&id=714949
-      // console.log(
-      //   `Channel with id : ${channelID} ${
-      //     channelstatus === 1 ? "Turned On" : "Turned Off"
-      //   }`
-      // );
       const response = await fetch(url, requestOptions);
       setJsonData(await response.json());
     })();
@@ -281,9 +229,13 @@ function Dashboard() {
       <div className="container" dir="rtl">
         <div className="welcome">
           <div id="logo">
+            <SettingIcon />
             <SenveeraLogo className="logo" />
           </div>
           <p>به سادگی خانه را مدیریت کن !</p>
+
+          {/* the inside-outside div is display: none */}
+
           <div className="inside-outside">
             <div
               id="btnOut"

@@ -3,6 +3,10 @@
 /* mobile 100px width to 399px width */
 
 @media only screen and (min-width: 100px) {
+  .inside-outside {
+    display: none !important;
+  }
+
   .container {
     width: 100%;
     min-height: calc(640px - 65px);
@@ -24,9 +28,10 @@
   #logo {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 2rem;
+    margin-bottom: 16px;
   }
 
   .logo {
