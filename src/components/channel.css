@@ -90,6 +90,7 @@
 
   .lampActive svg path {
     fill: var(--primary-color);
+    stroke: var(--primary-color);
   }
 
   .lampActive svg circle {
