@@ -110,6 +110,51 @@
     text-align: center;
   }
 
+  /* Thermostat Fan */
+
+  .thermoBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 4px;
+  }
+
+  .thermoBtn svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .thermoFan svg,
+  .thermoFan svg path,
+  .thermoFan svg circle {
+    transition: var(--transition-100-ms);
+  }
+
+  .thermoFanActive svg,
+  .thermoFanActive svg circle {
+    stroke: var(--primary-color);
+  }
+
+  .thermoFanActive svg path {
+    fill: var(--primary-color);
+    stroke: #fff;
+  }
+
+  .thermoPower svg,
+  .thermoPower svg path,
+  .thermoPower svg circle {
+    transition: var(--transition-100-ms);
+  }
+
+  .thermoPowerActive svg circle {
+    stroke: #ff7676;
+  }
+
+  .thermoPowerActive svg path {
+    fill: #ff7676;
+  }
+
   /* Thermostat Button */
 
   .thermostatBtn {

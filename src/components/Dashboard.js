@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ChannelBox from "./ChannelBox";
 import ThermostatBox from "./ThermostatBox";
+import IRBox from "./IRBox";
 import TabBar from "./TabBar";
 // import SVGPack from "./SVGPack";
 import "./dashboard.css";
@@ -27,7 +28,11 @@ function Dashboard() {
     otherModesFromAPI = [],
     thermostat = [],
     thermostatData,
-    thermostatFromAPI = [];
+    thermostatFromAPI = [],
+    ir = [],
+    irData,
+    irFromAPI = [],
+    strModesFromAPI = [];
 
   useEffect(() => {
     fetch(`${localUrl}`)
@@ -68,13 +73,27 @@ function Dashboard() {
         if (jsonData[i].hasOwnProperty("p")) {
           otherModesFromAPI.push(jsonData[i]);
         } else {
-          thermostatFromAPI.push(jsonData[i]);
+          strModesFromAPI.push(jsonData[i]);
         }
       }
     }
   };
 
   seperationOfData();
+
+  const seperationOfstrModes = () => {
+    if (strModesFromAPI.length !== 0) {
+      for (let i = 0; i < strModesFromAPI.length; i++) {
+        if (Number(strModesFromAPI[i]["i"].split(",")[2]) === 10) {
+          thermostatFromAPI.push(strModesFromAPI[i]);
+        } else if (Number(strModesFromAPI[i]["i"].split(",")[2]) === 8) {
+          irFromAPI.push(strModesFromAPI[i]);
+        }
+      }
+    }
+  };
+
+  seperationOfstrModes();
 
   const otherModesFunc = () => {
     for (let i = 0; i < otherModesFromAPI.length; i++) {
@@ -130,6 +149,78 @@ function Dashboard() {
 
   thermostatFunc();
 
+  const irFunc = () => {
+    for (let i = 0; i < irFromAPI.length; i++) {
+      ir.push(
+        irFromAPI.map((channel) => ({
+          packId: Number(channel["i"].split(",")[0]),
+          packName: channel["i"].split(",")[1],
+          mode: Number(channel["i"].split(",")[2]),
+          ip: channel["i"].split(",")[3],
+          tblPackage_pin: [
+            {
+              id: channel["pp"][0]["id"],
+              name: channel["pp"][0]["name"],
+              pin: channel["pp"][0]["pin"],
+              Protocol: channel["pp"][0]["Protocol"],
+              PinMode: channel["pp"][0]["PinMode"],
+              strStatus: {
+                stsmode: channel["pp"][0]["strStatus"]["stsmode"],
+                fan: channel["pp"][0]["strStatus"]["fan"],
+                mode: channel["pp"][0]["strStatus"]["mode"],
+                Power: channel["pp"][0]["strStatus"]["Power"],
+                degree: channel["pp"][0]["strStatus"]["degree"],
+                Temp:
+                  channel["pp"][0]["strStatus"]["Temp"] === undefined
+                    ? false
+                    : channel["pp"][0]["strStatus"]["Temp"],
+              },
+            },
+            {
+              id: channel["pp"][1]["id"],
+              name: channel["pp"][1]["name"],
+              pin: channel["pp"][1]["pin"],
+              Protocol: channel["pp"][1]["Protocol"],
+              PinMode: channel["pp"][1]["PinMode"],
+              strStatus: {
+                stsmode: channel["pp"][1]["strStatus"]["stsmode"],
+                fan: channel["pp"][1]["strStatus"]["fan"],
+                mode: channel["pp"][1]["strStatus"]["mode"],
+                Power: channel["pp"][1]["strStatus"]["Power"],
+                degree: channel["pp"][1]["strStatus"]["degree"],
+                Temp:
+                  channel["pp"][1]["strStatus"]["Temp"] === undefined
+                    ? false
+                    : channel["pp"][0]["strStatus"]["Temp"],
+              },
+            },
+            {
+              id: channel["pp"][2]["id"],
+              name: channel["pp"][2]["name"],
+              pin: channel["pp"][2]["pin"],
+              Protocol: channel["pp"][2]["Protocol"],
+              PinMode: channel["pp"][2]["PinMode"],
+              strStatus: {
+                stsmode: channel["pp"][2]["strStatus"]["stsmode"],
+                fan: channel["pp"][2]["strStatus"]["fan"],
+                mode: channel["pp"][2]["strStatus"]["mode"],
+                Power: channel["pp"][2]["strStatus"]["Power"],
+                degree: channel["pp"][2]["strStatus"]["degree"],
+                Temp:
+                  channel["pp"][2]["strStatus"]["Temp"] === undefined
+                    ? false
+                    : channel["pp"][0]["strStatus"]["Temp"],
+              },
+            },
+          ],
+        }))
+      );
+      irData = ir[0];
+    }
+  };
+
+  irFunc();
+
   // Outside and inside handle function
   // move to new component
   // from here ==>
@@ -166,7 +257,7 @@ function Dashboard() {
     })();
   };
 
-  // Change isCool
+  // Termostat Handle Function
 
   const handleIsCool = (event) => {
     // ${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-isCool-false
@@ -224,6 +315,66 @@ function Dashboard() {
     })();
   };
 
+  // IR Cooler Handle Function
+
+  const handleIR = (event) => {
+    // ${fan}-${degree}-${power}-${mode}-${irId}-irMode-false
+    const channel = event.target.id.split("-");
+    let fan = channel[0],
+      setTemp = Number(channel[1]) === null ? 18 : Number(channel[1]),
+      power = channel[2],
+      mode = channel[3],
+      channelID = channel[4],
+      irMode = channel[5];
+
+    function increaseTemp() {
+      let temp = Number(setTemp);
+      if (temp < 30) {
+        temp++;
+        setTemp = temp;
+      }
+    }
+
+    function decreaseTemp() {
+      let temp = Number(setTemp);
+      if (temp > 18) {
+        temp--;
+        setTemp = temp;
+      }
+    }
+    switch (irMode) {
+      case "irCoolerMode":
+        mode = channel[6];
+        break;
+      case "fanSpeed":
+        fan = channel[6];
+        break;
+      case "power":
+        power = channel[2] === "true" ? "false" : "true";
+        break;
+      case "temp":
+        if (channel[6] === "increase") {
+          increaseTemp();
+        } else if (channel[6] === "decrease") {
+          decreaseTemp();
+        }
+        break;
+      default:
+    }
+
+    (async () => {
+      const requestOptions = {
+        method: "POST",
+        body: JSON.stringify({ title: "Fetch POST Request Example" }),
+      };
+      // 192.168.1.166/IR/api/sendIRAC?id=441346&mode=1&degree=19&fan=1&power=true&result=Device1
+      const url = `${localIP}/IR/api/sendIRAC?id=${channelID}&mode=${mode}&degree=${setTemp}&fan=${fan}&power=${power}`;
+
+      const response = await fetch(url, requestOptions);
+      setJsonData(await response.json());
+    })();
+  };
+
   return (
     <>
       <div className="container" dir="rtl">
@@ -261,28 +412,32 @@ function Dashboard() {
               onClick={handleGetAPI}
             />
           </h3>
-          {otherModesData === undefined ? (
-            <h3>دستگاهی یافت نشد !</h3>
-          ) : (
+          {jsonData.length === 0 && <h3>دستگاهی یافت نشد !</h3>}
+          {otherModesData !== undefined &&
             otherModesData.map((light) => (
               <ChannelBox
                 data={light}
                 name={light["packName"]}
                 handleFunc={handleChannelStatus}
               />
-            ))
-          )}
-          {thermostatData === undefined ? (
-            <h3 style={{ display: "none" }}>ترموستاتی پیدا نشد!</h3>
-          ) : (
+            ))}
+          {thermostatData !== undefined &&
             thermostatData.map((therm) => (
               <ThermostatBox
                 data={therm}
                 name={therm["packName"]}
                 handleFunc={handleIsCool}
               />
-            ))
-          )}
+            ))}
+          {irData !== undefined &&
+            irData.map((ir) =>
+              ir["tblPackage_pin"].map(
+                (item) =>
+                  item["PinMode"] === 0 && (
+                    <IRBox data={item} handleFunc={handleIR} />
+                  )
+              )
+            )}
         </div>
         {/* commented for now */}
         {/* <FavoriteChannels/> */}

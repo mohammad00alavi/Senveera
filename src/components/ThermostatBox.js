@@ -4,6 +4,8 @@ import "./channel.css";
 import { ReactComponent as AddFavoriteButton } from "../svg/plus.svg";
 import { ReactComponent as MinusButton } from "../svg/minus.svg";
 import { ReactComponent as TemperatureSVG } from "../svg/temperature.svg";
+import { ReactComponent as Power } from "../svg/power.svg";
+import { ReactComponent as Fan } from "../svg/thermo-fan.svg";
 
 function ThermostatBox(props) {
   // 192.168.1.166/Termoostat/api/changeTermoostat/?fan=1&temp=20&iscool=true&issleep=true&id=714949
@@ -43,7 +45,8 @@ function ThermostatBox(props) {
           </span>
         </div>
         <span>
-          دمای محیط {props.data["tblPackage_pin"][0]["strStatus"]["Temp"]}&deg;C
+          دمای محیط {props.data["tblPackage_pin"][0]["strStatus"]["Temp"]}
+          &deg;C
         </span>
         <span
           id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-isSleep-true`}
@@ -60,7 +63,9 @@ function ThermostatBox(props) {
       <div className="channelGroup thermostatChanneslGroup">
         <span
           className={`${
-            fan === "1" ? "channelBtnActive channelLight" : "channelLight"
+            fan === "1"
+              ? "thermoFanActive thermoFan thermoBtn"
+              : "thermoFan thermoBtn"
           }`}
           // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-1`}
           // onClick={props.handleFunc}
@@ -69,11 +74,14 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-1`}
             onClick={props.handleFunc}
           ></span>
+          <Fan />
           فن 1
         </span>
         <span
           className={`${
-            fan === "2" ? "channelBtnActive channelLight" : "channelLight"
+            fan === "2"
+              ? "thermoFanActive thermoFan thermoBtn"
+              : "thermoFan thermoBtn"
           }`}
           // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-2`}
           // onClick={props.handleFunc}
@@ -82,11 +90,14 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-2`}
             onClick={props.handleFunc}
           ></span>
+          <Fan />
           فن 2
         </span>
         <span
           className={`${
-            fan === "3" ? "channelBtnActive channelLight" : "channelLight"
+            fan === "3"
+              ? "thermoFanActive thermoFan thermoBtn"
+              : "thermoFan thermoBtn"
           }`}
           // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-3`}
           // onClick={props.handleFunc}
@@ -95,11 +106,14 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-3`}
             onClick={props.handleFunc}
           ></span>
+          <Fan />
           فن 3
         </span>
         <span
           className={`${
-            fan === "0" ? "channelBtnActive channelLight" : "channelLight"
+            fan === "0"
+              ? "thermoFanActive thermoFan thermoBtn"
+              : "thermoFan thermoBtn"
           }`}
           // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-3`}
           // onClick={props.handleFunc}
@@ -108,11 +122,14 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-0`}
             onClick={props.handleFunc}
           ></span>
+          <Fan />
           اتومات
         </span>
         <span
           className={`${
-            fan === "4" ? "channelBtnActive channelLight" : "channelLight"
+            fan === "4"
+              ? "thermoPowerActive thermoBtn thermoPower"
+              : "thermoBtn thermoPower"
           }`}
           // id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-4`}
           // onClick={props.handleFunc}
@@ -121,6 +138,7 @@ function ThermostatBox(props) {
             id={`${fan}-${setTemp}-${isCool}-${isSleep}-${thermId}-fanSpeed-4`}
             onClick={props.handleFunc}
           ></span>
+          <Power />
           خاموش
         </span>
       </div>
